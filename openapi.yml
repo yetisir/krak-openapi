@@ -9,7 +9,7 @@ servers:
   - url: /api
 
 paths:
-  /borehole:
+  /boreholes:
     get:
       operationId: borehole.read_all
       summary: Read all boreholes in db, sorted by id
@@ -45,20 +45,20 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/borehole_output"
-  /borehole/{borehole_id}:
+  /boreholes/{borehole_id}:
+    parameters:
+      - name: borehole_id
+        in: path
+        description: Id of the borehole to get
+        required: true
+        schema:
+          type: integer
     get:
       operationId: borehole.read_one
       summary: Read one borehole
       description: Read one borehole
       tags:
         - Borehole
-      parameters:
-        - name: borehole_id
-          in: path
-          description: Id of the borehole to get
-          required: true
-          schema:
-            type: integer
       responses:
         "200":
           description: Successfully read borehole from borehole data operation
@@ -72,13 +72,6 @@ paths:
         - Borehole
       summary: Update a borehole
       description: Update a borehole
-      parameters:
-        - name: borehole_id
-          in: path
-          description: Id of the borehole to update
-          required: true
-          schema:
-            type: integer
       requestBody:
         content:
           application/json:
@@ -97,23 +90,24 @@ paths:
       description: Delete a borehole
       tags:
         - Borehole
-      parameters:
-        - name: borehole_id
-          in: path
-          description: Id of the borehole to delete
-          required: true
-          schema:
-            type: integer
       responses:
         "200":
           description: Successfully deleted borehole
-  /core_photo:
+  /boreholes/{borehole_id}/core_photos:
+    parameters:
+      - name: borehole_id
+        in: path
+        description: Id of Borehole
+        required: true
+        schema:
+          type: integer
     get:
       operationId: core_photo.read_all
       summary: Read all core photo ids in db, sorted by id
       description: Read all core photo ids in db, sorted by id
       tags:
         - CorePhotos
+
       responses:
         "200":
           description: Successfully read all core photos
@@ -162,7 +156,7 @@ components:
           description: Easting position of the collar
         northing:
           type: number
-          description: Nonrthing position of the collar
+          description: Northing position of the collar
         elevation:
           type: number
           description: Elevation position of the collar
@@ -181,25 +175,23 @@ components:
           type: string
           format: binary
           description: ''
-        borehole_id:
-          type: integer
         depth_from:
           type: number
         depth_to:
           type: number
-        crop_corners:
-          type: array
-          description: list of corner coordinates to crop the photo with
-          minItems: 4
-          maxItems: 4
-          items:
-            type: object
-            description: 2d pixel coordinates (left, top)
-            properties:
-              left:
-                type: number
-              top:
-                type: number
+        # crop_corners:
+        #   type: array
+        #   description: list of corner coordinates to crop the photo with
+        #   minItems: 4
+        #   maxItems: 4
+        #   items:
+        #     type: object
+        #     description: 2d pixel coordinates (left, top)
+        #     properties:
+        #       left:
+        #         type: number
+        #       top:
+        #         type: number
     core_photo_output:
       allOf:
         - $ref: '#components/schemas/core_photo_input'
