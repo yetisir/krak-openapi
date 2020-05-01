@@ -151,7 +151,7 @@ paths:
           type: integer
       - name: core_photo_id
         in: path
-        description: Id of Borehole
+        description: Id of Core Photo
         required: true
         schema:
           type: integer
@@ -200,7 +200,77 @@ paths:
       responses:
         "200":
           description: Successfully deleted borehole
-      
+  /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop:
+    parameters:
+      - name: borehole_id
+        in: path
+        description: Id of Borehole
+        required: true
+        schema:
+          type: integer
+      - name: core_photo_id
+        in: path
+        description: Id of core photo
+        required: true
+        schema:
+          type: integer
+    get:
+      operationId: core_photos.read_cropped
+      summary: Read cropped core photo
+      description: Read cropped core photo
+      tags:
+        - CorePhotos
+      responses:
+        "200":
+          description: Successfully read cropped core photos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/crop"
+    post:
+      operationId: core_photos.crop
+      summary: Crop a core photo
+      description: Crop a core photo
+      tags:
+        - CorePhotos
+      requestBody:
+        description: Core photo to crop
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/crop"
+      responses:
+        "201":
+          description: Successfully created core photo
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/crop"
+
+    put:
+      operationId: core_photos.update_crop
+      summary: re-crop a core photo
+      description: re-crop a core photo
+      tags:
+        - CorePhotos
+      requestBody:
+        description: Core photo to crop
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/crop"
+      responses:
+        "200":
+          description: Successfully re-cropped core photo
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/crop"
+
 components:
   schemas:
     boreholes:
@@ -242,16 +312,16 @@ components:
               type: number
             depth_to:
               type: number
-        # crop_corners:
-        #   type: array
-        #   description: list of corner coordinates to crop the photo with
-        #   minItems: 4
-        #   maxItems: 4
-        #   items:
-        #     type: object
-        #     description: 2d pixel coordinates (left, top)
-        #     properties:
-        #       left:
-        #         type: number
-        #       top:
-        #         type: number
+    crop:
+      type: array
+      description: list of corner coordinates to crop the photo with
+      minItems: 4
+      maxItems: 4
+      items:
+        type: object
+        description: 2d pixel coordinates (left, top)
+        properties:
+          left:
+            type: number
+          top:
+            type: number
