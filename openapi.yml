@@ -9,13 +9,13 @@ servers:
   - url: /api
 
 paths:
-  /boreholes:
+  /boreholes/:
     get:
-      operationId: borehole.read_all
+      operationId: boreholes.read_all
       summary: Read all boreholes in db, sorted by id
       description: Read all boreholes in db, sorted by id
       tags:
-        - Borehole
+        - Boreholes
       responses:
         "200":
           description: Successfully read boreholes
@@ -24,18 +24,18 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/borehole_output"
+                  $ref: "#/components/schemas/boreholes"
     post:
-      operationId: borehole.create
+      operationId: boreholes.create
       summary: Create a new borehole
       description: Create a new borehole
       tags:
-        - Borehole
+        - Boreholes
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/borehole_input"
+              $ref: "#/components/schemas/boreholes"
         description: Borehole to create
         required: true
       responses:
@@ -44,7 +44,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/borehole_output"
+                $ref: "#/components/schemas/boreholes"
   /boreholes/{borehole_id}:
     parameters:
       - name: borehole_id
@@ -54,46 +54,46 @@ paths:
         schema:
           type: integer
     get:
-      operationId: borehole.read_one
+      operationId: boreholes.read_one
       summary: Read one borehole
       description: Read one borehole
       tags:
-        - Borehole
+        - Boreholes
       responses:
         "200":
           description: Successfully read borehole from borehole data operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/borehole_output"
+                $ref: "#/components/schemas/boreholes"
     put:
-      operationId: borehole.update
+      operationId: boreholes.update
       tags:
-        - Borehole
+        - Boreholes
       summary: Update a borehole
       description: Update a borehole
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/borehole_input"
+              $ref: "#/components/schemas/boreholes"
       responses:
         "200":
           description: Successfully updated borehole
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/borehole_output"
+                $ref: "#/components/schemas/boreholes"
     delete:
-      operationId: borehole.delete
+      operationId: boreholes.delete
       summary: Delete a borehole
       description: Delete a borehole
       tags:
-        - Borehole
+        - Boreholes
       responses:
         "200":
           description: Successfully deleted borehole
-  /boreholes/{borehole_id}/core_photos:
+  /boreholes/{borehole_id}/core_photos/:
     parameters:
       - name: borehole_id
         in: path
@@ -102,45 +102,108 @@ paths:
         schema:
           type: integer
     get:
-      operationId: core_photo.read_all
+      operationId: core_photos.read_all
       summary: Read all core photo ids in db, sorted by id
       description: Read all core photo ids in db, sorted by id
       tags:
         - CorePhotos
-
       responses:
         "200":
           description: Successfully read all core photos
           content:
-            application/json:
+            multipart/form-data:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/core_photo_output"
+                  $ref: "#/components/schemas/core_photos"
     post:
-      operationId: core_photo.create
+      operationId: core_photos.create
       summary: Create a new core photo
       description: Create a new core photo
       tags:
         - CorePhotos
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/core_photo_input"
         description: Core photo to create
         required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/core_photos"
+            encoding:
+              photo:
+                contentType: image/*
+              data:
+                contentType: application/json
       responses:
         "201":
           description: Successfully created core photo
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/core_photo_output"
-
+                $ref: "#/components/schemas/core_photos"
+  /boreholes/{borehole_id}/core_photos/{core_photo_id}:
+    parameters:
+      - name: borehole_id
+        in: path
+        description: Id of Borehole
+        required: true
+        schema:
+          type: integer
+      - name: core_photo_id
+        in: path
+        description: Id of Borehole
+        required: true
+        schema:
+          type: integer
+    get:
+      operationId: core_photos.read_one
+      summary: Read one core photo
+      description: Read one core photo
+      tags:
+        - CorePhotos
+      responses:
+        "200":
+          description: Successfully read core photos
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/core_photos"
+    put:
+      operationId: core_photos.update
+      tags:
+        - CorePhotos
+      summary: Update a core_photo
+      description: Update a core_photo
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/core_photos"
+            encoding:
+              photo:
+                contentType: image/*
+              data:
+                contentType: application/json
+      responses:
+        "200":
+          description: Successfully updated borehole
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/core_photos"
+    delete:
+      operationId: core_photos.delete
+      summary: Delete a core_photo
+      description: Delete a core_photo
+      tags:
+        - CorePhotos
+      responses:
+        "200":
+          description: Successfully deleted borehole
+      
 components:
   schemas:
-    borehole_input:
+    boreholes:
       type: object
       required:
         - name
@@ -160,25 +223,25 @@ components:
         elevation:
           type: number
           description: Elevation position of the collar
-    borehole_output:
-      allOf:
-        - $ref: '#components/schemas/borehole_input'
-        - type: object
-          properties:
-            borehole_id:
-              type: integer
-              description: Id of the borehole
-    core_photo_input:
+    core_photos:
       type: object
+      required:
+        - photo
+        - data
       properties:
         photo:
           type: string
           format: binary
-          description: ''
-        depth_from:
-          type: number
-        depth_to:
-          type: number
+        data:
+          type: object
+          required:
+            - depth_from
+            - depth_to
+          properties:
+            depth_from:
+              type: number
+            depth_to:
+              type: number
         # crop_corners:
         #   type: array
         #   description: list of corner coordinates to crop the photo with
@@ -192,11 +255,3 @@ components:
         #         type: number
         #       top:
         #         type: number
-    core_photo_output:
-      allOf:
-        - $ref: '#components/schemas/core_photo_input'
-        - type: object
-          properties:
-            core_photo_id:
-              type: integer
-              description: Id of the core photo
