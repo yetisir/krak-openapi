@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  javascript_api:
+    build: .
+    volumes:
+        - ./api-javascript:/local/output
+    command: generate -i openapi.yml -g javascript -o /local/output/
+
+  python_api:
+    build: .
+    volumes:
+        - ./api-python:/local/output
+    command: generate -i openapi.yml -g python -o /local/output/
+
+  markdown_docs:
+    build: .
+    volumes:
+        - ./docs-markdown:/local/output
+    command: generate -i openapi.yml -g markdown -o /local/output/
+
+  html_docs:
+    build: .
+    volumes:
+        - ./docs-html:/local/output
+    command: generate -i openapi.yml -g html2 -o /local/output/
