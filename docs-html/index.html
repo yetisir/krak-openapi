@@ -900,17 +900,26 @@ ul.nav-tabs {
                     <li data-group="CorePhotos" data-name="corePhotos.create" class="">
                       <a href="#api-CorePhotos-corePhotos.create">corePhotos.create</a>
                     </li>
+                    <li data-group="CorePhotos" data-name="corePhotos.crop" class="">
+                      <a href="#api-CorePhotos-corePhotos.crop">corePhotos.crop</a>
+                    </li>
                     <li data-group="CorePhotos" data-name="corePhotos.delete" class="">
                       <a href="#api-CorePhotos-corePhotos.delete">corePhotos.delete</a>
                     </li>
                     <li data-group="CorePhotos" data-name="corePhotos.readAll" class="">
                       <a href="#api-CorePhotos-corePhotos.readAll">corePhotos.readAll</a>
                     </li>
+                    <li data-group="CorePhotos" data-name="corePhotos.readCropped" class="">
+                      <a href="#api-CorePhotos-corePhotos.readCropped">corePhotos.readCropped</a>
+                    </li>
                     <li data-group="CorePhotos" data-name="corePhotos.readOne" class="">
                       <a href="#api-CorePhotos-corePhotos.readOne">corePhotos.readOne</a>
                     </li>
                     <li data-group="CorePhotos" data-name="corePhotos.update" class="">
                       <a href="#api-CorePhotos-corePhotos.update">corePhotos.update</a>
+                    </li>
+                    <li data-group="CorePhotos" data-name="corePhotos.updateCrop" class="">
+                      <a href="#api-CorePhotos-corePhotos.updateCrop">corePhotos.updateCrop</a>
                     </li>
           </ul>
         </nav>
@@ -2945,6 +2954,411 @@ Id of Borehole
                         </article>
                       </div>
                       <hr>
+                    <div id="api-CorePhotos-corePhotos.crop">
+                      <article id="api-CorePhotos-corePhotos.crop-0" data-group="User" data-name="corePhotos.crop" data-version="0">
+                        <div class="pull-left">
+                          <h1>corePhotos.crop</h1>
+                          <p>Crop a core photo</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Crop a core photo</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-CorePhotos-corePhotos.crop-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-java">Java</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-python">Python</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.crop-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-CorePhotos-corePhotos.crop-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "http://localhost/api/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.CorePhotosApi;
+
+import java.io.File;
+import java.util.*;
+
+public class CorePhotosApiExample {
+
+    public static void main(String[] args) {
+        
+        CorePhotosApi apiInstance = new CorePhotosApi();
+        Integer boreholeId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of core photo
+        array[Object] object = ; // array[Object] | 
+        try {
+            array[Object] result = apiInstance.corePhotos.crop(boreholeId, corePhotoId, object);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CorePhotosApi#corePhotos.crop");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.CorePhotosApi;
+
+public class CorePhotosApiExample {
+
+    public static void main(String[] args) {
+        CorePhotosApi apiInstance = new CorePhotosApi();
+        Integer boreholeId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of core photo
+        array[Object] object = ; // array[Object] | 
+        try {
+            array[Object] result = apiInstance.corePhotos.crop(boreholeId, corePhotoId, object);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CorePhotosApi#corePhotos.crop");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *boreholeId = 56; // Id of Borehole (default to null)
+Integer *corePhotoId = 56; // Id of core photo (default to null)
+array[Object] *object = ; // 
+
+CorePhotosApi *apiInstance = [[CorePhotosApi alloc] init];
+
+// Crop a core photo
+[apiInstance corePhotos.cropWith:boreholeId
+    corePhotoId:corePhotoId
+    object:object
+              completionHandler: ^(array[Object] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var KrakRestApi = require('krak_rest_api');
+
+var api = new KrakRestApi.CorePhotosApi()
+var boreholeId = 56; // {Integer} Id of Borehole
+var corePhotoId = 56; // {Integer} Id of core photo
+var object = ; // {array[Object]} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.corePhotos.crop(boreholeId, corePhotoId, object, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class corePhotos.cropExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new CorePhotosApi();
+            var boreholeId = 56;  // Integer | Id of Borehole (default to null)
+            var corePhotoId = 56;  // Integer | Id of core photo (default to null)
+            var object = new array[Object](); // array[Object] | 
+
+            try
+            {
+                // Crop a core photo
+                array[Object] result = apiInstance.corePhotos.crop(boreholeId, corePhotoId, object);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CorePhotosApi.corePhotos.crop: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new OpenAPITools\Client\Api\CorePhotosApi();
+$boreholeId = 56; // Integer | Id of Borehole
+$corePhotoId = 56; // Integer | Id of core photo
+$object = ; // array[Object] | 
+
+try {
+    $result = $api_instance->corePhotos.crop($boreholeId, $corePhotoId, $object);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CorePhotosApi->corePhotos.crop: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::CorePhotosApi;
+
+my $api_instance = WWW::OPenAPIClient::CorePhotosApi->new();
+my $boreholeId = 56; # Integer | Id of Borehole
+my $corePhotoId = 56; # Integer | Id of core photo
+my $object = [WWW::OPenAPIClient::Object::array[Object]->new()]; # array[Object] | 
+
+eval { 
+    my $result = $api_instance->corePhotos.crop(boreholeId => $boreholeId, corePhotoId => $corePhotoId, object => $object);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CorePhotosApi->corePhotos.crop: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = openapi_client.CorePhotosApi()
+boreholeId = 56 # Integer | Id of Borehole (default to null)
+corePhotoId = 56 # Integer | Id of core photo (default to null)
+object =  # array[Object] | 
+
+try: 
+    # Crop a core photo
+    api_response = api_instance.core_photos/crop(boreholeId, corePhotoId, object)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CorePhotosApi->corePhotos.crop: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.crop-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate CorePhotosApi;
+
+pub fn main() {
+    let boreholeId = 56; // Integer
+    let corePhotoId = 56; // Integer
+    let object = ; // array[Object]
+
+    let mut context = CorePhotosApi::Context::default();
+    let result = client.corePhotos.crop(boreholeId, corePhotoId, object, &context).wait();
+    println!("{:?}", result);
+
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">borehole_id*</td>
+<td>
+
+
+    <div id="d2e199_corePhotos.crop_boreholeId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Id of Borehole
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">core_photo_id*</td>
+<td>
+
+
+    <div id="d2e199_corePhotos.crop_corePhotoId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Id of core photo
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">object <span style="color:red;">*</span></td>
+<td>
+<p class="marked">Core photo to crop</p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = ;
+  var schema = schemaWrapper.schema;
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_corePhotos.crop_object');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_corePhotos.crop_object"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-CorePhotos-corePhotos.crop-title-201"></h3>
+                            <p id="examples-CorePhotos-corePhotos.crop-description-201" class="marked"></p>
+                            <script>
+                              var responseCorePhotos201_description = `Successfully created core photo`;
+                              var responseCorePhotos201_description_break = responseCorePhotos201_description.indexOf('\n');
+                              if (responseCorePhotos201_description_break == -1) {
+                                $("#examples-CorePhotos-corePhotos.crop-title-201").text("Status: 201 - " + responseCorePhotos201_description);
+                              } else {
+                                $("#examples-CorePhotos-corePhotos.crop-title-201").text("Status: 201 - " + responseCorePhotos201_description.substring(0, responseCorePhotos201_description_break));
+                                $("#examples-CorePhotos-corePhotos.crop-description-201").html(responseCorePhotos201_description.substring(responseCorePhotos201_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-CorePhotos-corePhotos.crop-201" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-CorePhotos-corePhotos.crop-201-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-CorePhotos-corePhotos.crop-201-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-CorePhotos-corePhotos.crop-201-schema">
+                                  <div id="responses-CorePhotos-corePhotos.crop-schema-201" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Successfully created core photo",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/crop"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-CorePhotos-corePhotos.crop-201-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-CorePhotos-corePhotos.crop-schema-201');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-CorePhotos-corePhotos.crop-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-CorePhotos-corePhotos.delete">
                       <article id="api-CorePhotos-corePhotos.delete-0" data-group="User" data-name="corePhotos.delete" data-version="0">
                         <div class="pull-left">
@@ -2995,7 +3409,7 @@ public class CorePhotosApiExample {
         
         CorePhotosApi apiInstance = new CorePhotosApi();
         Integer boreholeId = 56; // Integer | Id of Borehole
-        Integer corePhotoId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of Core Photo
         try {
             apiInstance.corePhotos.delete(boreholeId, corePhotoId);
         } catch (ApiException e) {
@@ -3015,7 +3429,7 @@ public class CorePhotosApiExample {
     public static void main(String[] args) {
         CorePhotosApi apiInstance = new CorePhotosApi();
         Integer boreholeId = 56; // Integer | Id of Borehole
-        Integer corePhotoId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of Core Photo
         try {
             apiInstance.corePhotos.delete(boreholeId, corePhotoId);
         } catch (ApiException e) {
@@ -3031,7 +3445,7 @@ public class CorePhotosApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-CorePhotos-corePhotos.delete-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Integer *boreholeId = 56; // Id of Borehole (default to null)
-Integer *corePhotoId = 56; // Id of Borehole (default to null)
+Integer *corePhotoId = 56; // Id of Core Photo (default to null)
 
 CorePhotosApi *apiInstance = [[CorePhotosApi alloc] init];
 
@@ -3051,7 +3465,7 @@ CorePhotosApi *apiInstance = [[CorePhotosApi alloc] init];
 
 var api = new KrakRestApi.CorePhotosApi()
 var boreholeId = 56; // {Integer} Id of Borehole
-var corePhotoId = 56; // {Integer} Id of Borehole
+var corePhotoId = 56; // {Integer} Id of Core Photo
 
 var callback = function(error, data, response) {
   if (error) {
@@ -3083,7 +3497,7 @@ namespace Example
             
             var apiInstance = new CorePhotosApi();
             var boreholeId = 56;  // Integer | Id of Borehole (default to null)
-            var corePhotoId = 56;  // Integer | Id of Borehole (default to null)
+            var corePhotoId = 56;  // Integer | Id of Core Photo (default to null)
 
             try
             {
@@ -3106,7 +3520,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new OpenAPITools\Client\Api\CorePhotosApi();
 $boreholeId = 56; // Integer | Id of Borehole
-$corePhotoId = 56; // Integer | Id of Borehole
+$corePhotoId = 56; // Integer | Id of Core Photo
 
 try {
     $api_instance->corePhotos.delete($boreholeId, $corePhotoId);
@@ -3123,7 +3537,7 @@ use WWW::OPenAPIClient::CorePhotosApi;
 
 my $api_instance = WWW::OPenAPIClient::CorePhotosApi->new();
 my $boreholeId = 56; # Integer | Id of Borehole
-my $corePhotoId = 56; # Integer | Id of Borehole
+my $corePhotoId = 56; # Integer | Id of Core Photo
 
 eval { 
     $api_instance->corePhotos.delete(boreholeId => $boreholeId, corePhotoId => $corePhotoId);
@@ -3143,7 +3557,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = openapi_client.CorePhotosApi()
 boreholeId = 56 # Integer | Id of Borehole (default to null)
-corePhotoId = 56 # Integer | Id of Borehole (default to null)
+corePhotoId = 56 # Integer | Id of Core Photo (default to null)
 
 try: 
     # Delete a core_photo
@@ -3216,7 +3630,7 @@ Id of Borehole
                 </span>
 
                     <div class="inner description marked">
-Id of Borehole
+Id of Core Photo
                     </div>
             </div>
                 <div class="inner required">
@@ -3591,6 +4005,371 @@ Id of Borehole
                         </article>
                       </div>
                       <hr>
+                    <div id="api-CorePhotos-corePhotos.readCropped">
+                      <article id="api-CorePhotos-corePhotos.readCropped-0" data-group="User" data-name="corePhotos.readCropped" data-version="0">
+                        <div class="pull-left">
+                          <h1>corePhotos.readCropped</h1>
+                          <p>Read cropped core photo</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Read cropped core photo</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-CorePhotos-corePhotos.readCropped-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-java">Java</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-python">Python</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.readCropped-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-CorePhotos-corePhotos.readCropped-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "http://localhost/api/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.CorePhotosApi;
+
+import java.io.File;
+import java.util.*;
+
+public class CorePhotosApiExample {
+
+    public static void main(String[] args) {
+        
+        CorePhotosApi apiInstance = new CorePhotosApi();
+        Integer boreholeId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of core photo
+        try {
+            array[List] result = apiInstance.corePhotos.readCropped(boreholeId, corePhotoId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CorePhotosApi#corePhotos.readCropped");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.CorePhotosApi;
+
+public class CorePhotosApiExample {
+
+    public static void main(String[] args) {
+        CorePhotosApi apiInstance = new CorePhotosApi();
+        Integer boreholeId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of core photo
+        try {
+            array[List] result = apiInstance.corePhotos.readCropped(boreholeId, corePhotoId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CorePhotosApi#corePhotos.readCropped");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *boreholeId = 56; // Id of Borehole (default to null)
+Integer *corePhotoId = 56; // Id of core photo (default to null)
+
+CorePhotosApi *apiInstance = [[CorePhotosApi alloc] init];
+
+// Read cropped core photo
+[apiInstance corePhotos.readCroppedWith:boreholeId
+    corePhotoId:corePhotoId
+              completionHandler: ^(array[List] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var KrakRestApi = require('krak_rest_api');
+
+var api = new KrakRestApi.CorePhotosApi()
+var boreholeId = 56; // {Integer} Id of Borehole
+var corePhotoId = 56; // {Integer} Id of core photo
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.corePhotos.readCropped(boreholeId, corePhotoId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class corePhotos.readCroppedExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new CorePhotosApi();
+            var boreholeId = 56;  // Integer | Id of Borehole (default to null)
+            var corePhotoId = 56;  // Integer | Id of core photo (default to null)
+
+            try
+            {
+                // Read cropped core photo
+                array[List] result = apiInstance.corePhotos.readCropped(boreholeId, corePhotoId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CorePhotosApi.corePhotos.readCropped: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new OpenAPITools\Client\Api\CorePhotosApi();
+$boreholeId = 56; // Integer | Id of Borehole
+$corePhotoId = 56; // Integer | Id of core photo
+
+try {
+    $result = $api_instance->corePhotos.readCropped($boreholeId, $corePhotoId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CorePhotosApi->corePhotos.readCropped: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::CorePhotosApi;
+
+my $api_instance = WWW::OPenAPIClient::CorePhotosApi->new();
+my $boreholeId = 56; # Integer | Id of Borehole
+my $corePhotoId = 56; # Integer | Id of core photo
+
+eval { 
+    my $result = $api_instance->corePhotos.readCropped(boreholeId => $boreholeId, corePhotoId => $corePhotoId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CorePhotosApi->corePhotos.readCropped: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = openapi_client.CorePhotosApi()
+boreholeId = 56 # Integer | Id of Borehole (default to null)
+corePhotoId = 56 # Integer | Id of core photo (default to null)
+
+try: 
+    # Read cropped core photo
+    api_response = api_instance.core_photos/read_cropped(boreholeId, corePhotoId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CorePhotosApi->corePhotos.readCropped: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.readCropped-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate CorePhotosApi;
+
+pub fn main() {
+    let boreholeId = 56; // Integer
+    let corePhotoId = 56; // Integer
+
+    let mut context = CorePhotosApi::Context::default();
+    let result = client.corePhotos.readCropped(boreholeId, corePhotoId, &context).wait();
+    println!("{:?}", result);
+
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">borehole_id*</td>
+<td>
+
+
+    <div id="d2e199_corePhotos.readCropped_boreholeId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Id of Borehole
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">core_photo_id*</td>
+<td>
+
+
+    <div id="d2e199_corePhotos.readCropped_corePhotoId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Id of core photo
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-CorePhotos-corePhotos.readCropped-title-200"></h3>
+                            <p id="examples-CorePhotos-corePhotos.readCropped-description-200" class="marked"></p>
+                            <script>
+                              var responseCorePhotos200_description = `Successfully read cropped core photos`;
+                              var responseCorePhotos200_description_break = responseCorePhotos200_description.indexOf('\n');
+                              if (responseCorePhotos200_description_break == -1) {
+                                $("#examples-CorePhotos-corePhotos.readCropped-title-200").text("Status: 200 - " + responseCorePhotos200_description);
+                              } else {
+                                $("#examples-CorePhotos-corePhotos.readCropped-title-200").text("Status: 200 - " + responseCorePhotos200_description.substring(0, responseCorePhotos200_description_break));
+                                $("#examples-CorePhotos-corePhotos.readCropped-description-200").html(responseCorePhotos200_description.substring(responseCorePhotos200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-CorePhotos-corePhotos.readCropped-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-CorePhotos-corePhotos.readCropped-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-CorePhotos-corePhotos.readCropped-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-CorePhotos-corePhotos.readCropped-200-schema">
+                                  <div id="responses-CorePhotos-corePhotos.readCropped-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Successfully read cropped core photos",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/crop"
+        }
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-CorePhotos-corePhotos.readCropped-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-CorePhotos-corePhotos.readCropped-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-CorePhotos-corePhotos.readCropped-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-CorePhotos-corePhotos.readOne">
                       <article id="api-CorePhotos-corePhotos.readOne-0" data-group="User" data-name="corePhotos.readOne" data-version="0">
                         <div class="pull-left">
@@ -3641,7 +4420,7 @@ public class CorePhotosApiExample {
         
         CorePhotosApi apiInstance = new CorePhotosApi();
         Integer boreholeId = 56; // Integer | Id of Borehole
-        Integer corePhotoId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of Core Photo
         try {
             core_photos result = apiInstance.corePhotos.readOne(boreholeId, corePhotoId);
             System.out.println(result);
@@ -3662,7 +4441,7 @@ public class CorePhotosApiExample {
     public static void main(String[] args) {
         CorePhotosApi apiInstance = new CorePhotosApi();
         Integer boreholeId = 56; // Integer | Id of Borehole
-        Integer corePhotoId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of Core Photo
         try {
             core_photos result = apiInstance.corePhotos.readOne(boreholeId, corePhotoId);
             System.out.println(result);
@@ -3679,7 +4458,7 @@ public class CorePhotosApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-CorePhotos-corePhotos.readOne-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Integer *boreholeId = 56; // Id of Borehole (default to null)
-Integer *corePhotoId = 56; // Id of Borehole (default to null)
+Integer *corePhotoId = 56; // Id of Core Photo (default to null)
 
 CorePhotosApi *apiInstance = [[CorePhotosApi alloc] init];
 
@@ -3702,7 +4481,7 @@ CorePhotosApi *apiInstance = [[CorePhotosApi alloc] init];
 
 var api = new KrakRestApi.CorePhotosApi()
 var boreholeId = 56; // {Integer} Id of Borehole
-var corePhotoId = 56; // {Integer} Id of Borehole
+var corePhotoId = 56; // {Integer} Id of Core Photo
 
 var callback = function(error, data, response) {
   if (error) {
@@ -3734,7 +4513,7 @@ namespace Example
             
             var apiInstance = new CorePhotosApi();
             var boreholeId = 56;  // Integer | Id of Borehole (default to null)
-            var corePhotoId = 56;  // Integer | Id of Borehole (default to null)
+            var corePhotoId = 56;  // Integer | Id of Core Photo (default to null)
 
             try
             {
@@ -3758,7 +4537,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new OpenAPITools\Client\Api\CorePhotosApi();
 $boreholeId = 56; // Integer | Id of Borehole
-$corePhotoId = 56; // Integer | Id of Borehole
+$corePhotoId = 56; // Integer | Id of Core Photo
 
 try {
     $result = $api_instance->corePhotos.readOne($boreholeId, $corePhotoId);
@@ -3776,7 +4555,7 @@ use WWW::OPenAPIClient::CorePhotosApi;
 
 my $api_instance = WWW::OPenAPIClient::CorePhotosApi->new();
 my $boreholeId = 56; # Integer | Id of Borehole
-my $corePhotoId = 56; # Integer | Id of Borehole
+my $corePhotoId = 56; # Integer | Id of Core Photo
 
 eval { 
     my $result = $api_instance->corePhotos.readOne(boreholeId => $boreholeId, corePhotoId => $corePhotoId);
@@ -3797,7 +4576,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = openapi_client.CorePhotosApi()
 boreholeId = 56 # Integer | Id of Borehole (default to null)
-corePhotoId = 56 # Integer | Id of Borehole (default to null)
+corePhotoId = 56 # Integer | Id of Core Photo (default to null)
 
 try: 
     # Read one core photo
@@ -3871,7 +4650,7 @@ Id of Borehole
                 </span>
 
                     <div class="inner description marked">
-Id of Borehole
+Id of Core Photo
                     </div>
             </div>
                 <div class="inner required">
@@ -4003,7 +4782,7 @@ public class CorePhotosApiExample {
         
         CorePhotosApi apiInstance = new CorePhotosApi();
         Integer boreholeId = 56; // Integer | Id of Borehole
-        Integer corePhotoId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of Core Photo
         File photo = BINARY_DATA_HERE; // File | 
         core_photos_data data = ; // core_photos_data | 
         try {
@@ -4026,7 +4805,7 @@ public class CorePhotosApiExample {
     public static void main(String[] args) {
         CorePhotosApi apiInstance = new CorePhotosApi();
         Integer boreholeId = 56; // Integer | Id of Borehole
-        Integer corePhotoId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of Core Photo
         File photo = BINARY_DATA_HERE; // File | 
         core_photos_data data = ; // core_photos_data | 
         try {
@@ -4045,7 +4824,7 @@ public class CorePhotosApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-CorePhotos-corePhotos.update-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Integer *boreholeId = 56; // Id of Borehole (default to null)
-Integer *corePhotoId = 56; // Id of Borehole (default to null)
+Integer *corePhotoId = 56; // Id of Core Photo (default to null)
 File *photo = BINARY_DATA_HERE; //  (default to null)
 core_photos_data *data = ; //  (default to null)
 
@@ -4072,7 +4851,7 @@ CorePhotosApi *apiInstance = [[CorePhotosApi alloc] init];
 
 var api = new KrakRestApi.CorePhotosApi()
 var boreholeId = 56; // {Integer} Id of Borehole
-var corePhotoId = 56; // {Integer} Id of Borehole
+var corePhotoId = 56; // {Integer} Id of Core Photo
 var photo = BINARY_DATA_HERE; // {File} 
 var data = ; // {core_photos_data} 
 
@@ -4106,7 +4885,7 @@ namespace Example
             
             var apiInstance = new CorePhotosApi();
             var boreholeId = 56;  // Integer | Id of Borehole (default to null)
-            var corePhotoId = 56;  // Integer | Id of Borehole (default to null)
+            var corePhotoId = 56;  // Integer | Id of Core Photo (default to null)
             var photo = BINARY_DATA_HERE;  // File |  (default to null)
             var data = new core_photos_data(); // core_photos_data |  (default to null)
 
@@ -4132,7 +4911,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new OpenAPITools\Client\Api\CorePhotosApi();
 $boreholeId = 56; // Integer | Id of Borehole
-$corePhotoId = 56; // Integer | Id of Borehole
+$corePhotoId = 56; // Integer | Id of Core Photo
 $photo = BINARY_DATA_HERE; // File | 
 $data = ; // core_photos_data | 
 
@@ -4152,7 +4931,7 @@ use WWW::OPenAPIClient::CorePhotosApi;
 
 my $api_instance = WWW::OPenAPIClient::CorePhotosApi->new();
 my $boreholeId = 56; # Integer | Id of Borehole
-my $corePhotoId = 56; # Integer | Id of Borehole
+my $corePhotoId = 56; # Integer | Id of Core Photo
 my $photo = BINARY_DATA_HERE; # File | 
 my $data = ; # core_photos_data | 
 
@@ -4175,7 +4954,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = openapi_client.CorePhotosApi()
 boreholeId = 56 # Integer | Id of Borehole (default to null)
-corePhotoId = 56 # Integer | Id of Borehole (default to null)
+corePhotoId = 56 # Integer | Id of Core Photo (default to null)
 photo = BINARY_DATA_HERE # File |  (default to null)
 data =  # core_photos_data |  (default to null)
 
@@ -4253,7 +5032,7 @@ Id of Borehole
                 </span>
 
                     <div class="inner description marked">
-Id of Borehole
+Id of Core Photo
                     </div>
             </div>
                 <div class="inner required">
@@ -4380,6 +5159,411 @@ Id of Borehole
                                     </script>
                                   </div>
                                   <input id='responses-CorePhotos-corePhotos.update-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-CorePhotos-corePhotos.updateCrop">
+                      <article id="api-CorePhotos-corePhotos.updateCrop-0" data-group="User" data-name="corePhotos.updateCrop" data-version="0">
+                        <div class="pull-left">
+                          <h1>corePhotos.updateCrop</h1>
+                          <p>re-crop a core photo</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">re-crop a core photo</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-CorePhotos-corePhotos.updateCrop-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-java">Java</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-python">Python</a></li>
+                          <li class=""><a href="#examples-CorePhotos-corePhotos.updateCrop-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-CorePhotos-corePhotos.updateCrop-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT "http://localhost/api/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.CorePhotosApi;
+
+import java.io.File;
+import java.util.*;
+
+public class CorePhotosApiExample {
+
+    public static void main(String[] args) {
+        
+        CorePhotosApi apiInstance = new CorePhotosApi();
+        Integer boreholeId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of core photo
+        array[Object] object = ; // array[Object] | 
+        try {
+            array[Object] result = apiInstance.corePhotos.updateCrop(boreholeId, corePhotoId, object);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CorePhotosApi#corePhotos.updateCrop");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.CorePhotosApi;
+
+public class CorePhotosApiExample {
+
+    public static void main(String[] args) {
+        CorePhotosApi apiInstance = new CorePhotosApi();
+        Integer boreholeId = 56; // Integer | Id of Borehole
+        Integer corePhotoId = 56; // Integer | Id of core photo
+        array[Object] object = ; // array[Object] | 
+        try {
+            array[Object] result = apiInstance.corePhotos.updateCrop(boreholeId, corePhotoId, object);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CorePhotosApi#corePhotos.updateCrop");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Integer *boreholeId = 56; // Id of Borehole (default to null)
+Integer *corePhotoId = 56; // Id of core photo (default to null)
+array[Object] *object = ; // 
+
+CorePhotosApi *apiInstance = [[CorePhotosApi alloc] init];
+
+// re-crop a core photo
+[apiInstance corePhotos.updateCropWith:boreholeId
+    corePhotoId:corePhotoId
+    object:object
+              completionHandler: ^(array[Object] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var KrakRestApi = require('krak_rest_api');
+
+var api = new KrakRestApi.CorePhotosApi()
+var boreholeId = 56; // {Integer} Id of Borehole
+var corePhotoId = 56; // {Integer} Id of core photo
+var object = ; // {array[Object]} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.corePhotos.updateCrop(boreholeId, corePhotoId, object, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class corePhotos.updateCropExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new CorePhotosApi();
+            var boreholeId = 56;  // Integer | Id of Borehole (default to null)
+            var corePhotoId = 56;  // Integer | Id of core photo (default to null)
+            var object = new array[Object](); // array[Object] | 
+
+            try
+            {
+                // re-crop a core photo
+                array[Object] result = apiInstance.corePhotos.updateCrop(boreholeId, corePhotoId, object);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CorePhotosApi.corePhotos.updateCrop: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new OpenAPITools\Client\Api\CorePhotosApi();
+$boreholeId = 56; // Integer | Id of Borehole
+$corePhotoId = 56; // Integer | Id of core photo
+$object = ; // array[Object] | 
+
+try {
+    $result = $api_instance->corePhotos.updateCrop($boreholeId, $corePhotoId, $object);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CorePhotosApi->corePhotos.updateCrop: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::CorePhotosApi;
+
+my $api_instance = WWW::OPenAPIClient::CorePhotosApi->new();
+my $boreholeId = 56; # Integer | Id of Borehole
+my $corePhotoId = 56; # Integer | Id of core photo
+my $object = [WWW::OPenAPIClient::Object::array[Object]->new()]; # array[Object] | 
+
+eval { 
+    my $result = $api_instance->corePhotos.updateCrop(boreholeId => $boreholeId, corePhotoId => $corePhotoId, object => $object);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CorePhotosApi->corePhotos.updateCrop: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = openapi_client.CorePhotosApi()
+boreholeId = 56 # Integer | Id of Borehole (default to null)
+corePhotoId = 56 # Integer | Id of core photo (default to null)
+object =  # array[Object] | 
+
+try: 
+    # re-crop a core photo
+    api_response = api_instance.core_photos/update_crop(boreholeId, corePhotoId, object)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CorePhotosApi->corePhotos.updateCrop: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CorePhotos-corePhotos.updateCrop-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate CorePhotosApi;
+
+pub fn main() {
+    let boreholeId = 56; // Integer
+    let corePhotoId = 56; // Integer
+    let object = ; // array[Object]
+
+    let mut context = CorePhotosApi::Context::default();
+    let result = client.corePhotos.updateCrop(boreholeId, corePhotoId, object, &context).wait();
+    println!("{:?}", result);
+
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">borehole_id*</td>
+<td>
+
+
+    <div id="d2e199_corePhotos.updateCrop_boreholeId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Id of Borehole
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">core_photo_id*</td>
+<td>
+
+
+    <div id="d2e199_corePhotos.updateCrop_corePhotoId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Id of core photo
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">object <span style="color:red;">*</span></td>
+<td>
+<p class="marked">Core photo to crop</p>
+<script>
+$(document).ready(function() {
+  var schemaWrapper = ;
+  var schema = schemaWrapper.schema;
+  if (schema.$ref != null) {
+    schema = defsParser.$refs.get(schema.$ref);
+  } else {
+    schemaWrapper.definitions = Object.assign({}, defs);
+    $RefParser.dereference(schemaWrapper).catch(function(err) {
+      console.log(err);
+    });
+  }
+
+  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+  var result = $('#d2e199_corePhotos.updateCrop_object');
+  result.empty();
+  result.append(view.render());
+});
+</script>
+<div id="d2e199_corePhotos.updateCrop_object"></div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-CorePhotos-corePhotos.updateCrop-title-200"></h3>
+                            <p id="examples-CorePhotos-corePhotos.updateCrop-description-200" class="marked"></p>
+                            <script>
+                              var responseCorePhotos200_description = `Successfully re-cropped core photo`;
+                              var responseCorePhotos200_description_break = responseCorePhotos200_description.indexOf('\n');
+                              if (responseCorePhotos200_description_break == -1) {
+                                $("#examples-CorePhotos-corePhotos.updateCrop-title-200").text("Status: 200 - " + responseCorePhotos200_description);
+                              } else {
+                                $("#examples-CorePhotos-corePhotos.updateCrop-title-200").text("Status: 200 - " + responseCorePhotos200_description.substring(0, responseCorePhotos200_description_break));
+                                $("#examples-CorePhotos-corePhotos.updateCrop-description-200").html(responseCorePhotos200_description.substring(responseCorePhotos200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-CorePhotos-corePhotos.updateCrop-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-CorePhotos-corePhotos.updateCrop-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-CorePhotos-corePhotos.updateCrop-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-CorePhotos-corePhotos.updateCrop-200-schema">
+                                  <div id="responses-CorePhotos-corePhotos.updateCrop-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Successfully re-cropped core photo",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/crop"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-CorePhotos-corePhotos.updateCrop-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-CorePhotos-corePhotos.updateCrop-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-CorePhotos-corePhotos.updateCrop-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
                         </article>

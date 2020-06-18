@@ -91,6 +91,60 @@ export default class CorePhotosApi {
     }
 
     /**
+     * Callback function to receive the result of the corePhotosCrop operation.
+     * @callback module:api/CorePhotosApi~corePhotosCropCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<Object>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Crop a core photo
+     * Crop a core photo
+     * @param {Number} boreholeId Id of Borehole
+     * @param {Number} corePhotoId Id of core photo
+     * @param {Array.<Object>} requestBody Core photo to crop
+     * @param {module:api/CorePhotosApi~corePhotosCropCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<Object>}
+     */
+    corePhotosCrop(boreholeId, corePhotoId, requestBody, callback) {
+      let postBody = requestBody;
+      // verify the required parameter 'boreholeId' is set
+      if (boreholeId === undefined || boreholeId === null) {
+        throw new Error("Missing the required parameter 'boreholeId' when calling corePhotosCrop");
+      }
+      // verify the required parameter 'corePhotoId' is set
+      if (corePhotoId === undefined || corePhotoId === null) {
+        throw new Error("Missing the required parameter 'corePhotoId' when calling corePhotosCrop");
+      }
+      // verify the required parameter 'requestBody' is set
+      if (requestBody === undefined || requestBody === null) {
+        throw new Error("Missing the required parameter 'requestBody' when calling corePhotosCrop");
+      }
+
+      let pathParams = {
+        'borehole_id': boreholeId,
+        'core_photo_id': corePhotoId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [Object];
+      return this.apiClient.callApi(
+        '/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the corePhotosDelete operation.
      * @callback module:api/CorePhotosApi~corePhotosDeleteCallback
      * @param {String} error Error message, if any.
@@ -102,7 +156,7 @@ export default class CorePhotosApi {
      * Delete a core_photo
      * Delete a core_photo
      * @param {Number} boreholeId Id of Borehole
-     * @param {Number} corePhotoId Id of Borehole
+     * @param {Number} corePhotoId Id of Core Photo
      * @param {module:api/CorePhotosApi~corePhotosDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      */
     corePhotosDelete(boreholeId, corePhotoId, callback) {
@@ -182,6 +236,55 @@ export default class CorePhotosApi {
     }
 
     /**
+     * Callback function to receive the result of the corePhotosReadCropped operation.
+     * @callback module:api/CorePhotosApi~corePhotosReadCroppedCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<Array>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Read cropped core photo
+     * Read cropped core photo
+     * @param {Number} boreholeId Id of Borehole
+     * @param {Number} corePhotoId Id of core photo
+     * @param {module:api/CorePhotosApi~corePhotosReadCroppedCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<Array>}
+     */
+    corePhotosReadCropped(boreholeId, corePhotoId, callback) {
+      let postBody = null;
+      // verify the required parameter 'boreholeId' is set
+      if (boreholeId === undefined || boreholeId === null) {
+        throw new Error("Missing the required parameter 'boreholeId' when calling corePhotosReadCropped");
+      }
+      // verify the required parameter 'corePhotoId' is set
+      if (corePhotoId === undefined || corePhotoId === null) {
+        throw new Error("Missing the required parameter 'corePhotoId' when calling corePhotosReadCropped");
+      }
+
+      let pathParams = {
+        'borehole_id': boreholeId,
+        'core_photo_id': corePhotoId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [Array];
+      return this.apiClient.callApi(
+        '/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the corePhotosReadOne operation.
      * @callback module:api/CorePhotosApi~corePhotosReadOneCallback
      * @param {String} error Error message, if any.
@@ -193,7 +296,7 @@ export default class CorePhotosApi {
      * Read one core photo
      * Read one core photo
      * @param {Number} boreholeId Id of Borehole
-     * @param {Number} corePhotoId Id of Borehole
+     * @param {Number} corePhotoId Id of Core Photo
      * @param {module:api/CorePhotosApi~corePhotosReadOneCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CorePhotos}
      */
@@ -242,7 +345,7 @@ export default class CorePhotosApi {
      * Update a core_photo
      * Update a core_photo
      * @param {Number} boreholeId Id of Borehole
-     * @param {Number} corePhotoId Id of Borehole
+     * @param {Number} corePhotoId Id of Core Photo
      * @param {File} photo 
      * @param {module:model/CorePhotosData} data 
      * @param {module:api/CorePhotosApi~corePhotosUpdateCallback} callback The callback function, accepting three arguments: error, data, response
@@ -286,6 +389,60 @@ export default class CorePhotosApi {
       let returnType = CorePhotos;
       return this.apiClient.callApi(
         '/boreholes/{borehole_id}/core_photos/{core_photo_id}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the corePhotosUpdateCrop operation.
+     * @callback module:api/CorePhotosApi~corePhotosUpdateCropCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<Object>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * re-crop a core photo
+     * re-crop a core photo
+     * @param {Number} boreholeId Id of Borehole
+     * @param {Number} corePhotoId Id of core photo
+     * @param {Array.<Object>} requestBody Core photo to crop
+     * @param {module:api/CorePhotosApi~corePhotosUpdateCropCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<Object>}
+     */
+    corePhotosUpdateCrop(boreholeId, corePhotoId, requestBody, callback) {
+      let postBody = requestBody;
+      // verify the required parameter 'boreholeId' is set
+      if (boreholeId === undefined || boreholeId === null) {
+        throw new Error("Missing the required parameter 'boreholeId' when calling corePhotosUpdateCrop");
+      }
+      // verify the required parameter 'corePhotoId' is set
+      if (corePhotoId === undefined || corePhotoId === null) {
+        throw new Error("Missing the required parameter 'corePhotoId' when calling corePhotosUpdateCrop");
+      }
+      // verify the required parameter 'requestBody' is set
+      if (requestBody === undefined || requestBody === null) {
+        throw new Error("Missing the required parameter 'requestBody' when calling corePhotosUpdateCrop");
+      }
+
+      let pathParams = {
+        'borehole_id': boreholeId,
+        'core_photo_id': corePhotoId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [Object];
+      return this.apiClient.callApi(
+        '/boreholes/{borehole_id}/core_photos/{core_photo_id}/crop', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

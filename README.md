@@ -11,5 +11,5 @@ The API docs are hosted here: [API Docs](.//docs-markdown/README.md)
 The libraries and documentation can be built with docker-compose:
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```

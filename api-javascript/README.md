@@ -126,10 +126,13 @@ Class | Method | HTTP request | Description
 *KrakRestApi.BoreholesApi* | [**boreholesReadOne**](docs/BoreholesApi.md#boreholesReadOne) | **GET** /boreholes/{borehole_id} | Read one borehole
 *KrakRestApi.BoreholesApi* | [**boreholesUpdate**](docs/BoreholesApi.md#boreholesUpdate) | **PUT** /boreholes/{borehole_id} | Update a borehole
 *KrakRestApi.CorePhotosApi* | [**corePhotosCreate**](docs/CorePhotosApi.md#corePhotosCreate) | **POST** /boreholes/{borehole_id}/core_photos/ | Create a new core photo
+*KrakRestApi.CorePhotosApi* | [**corePhotosCrop**](docs/CorePhotosApi.md#corePhotosCrop) | **POST** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | Crop a core photo
 *KrakRestApi.CorePhotosApi* | [**corePhotosDelete**](docs/CorePhotosApi.md#corePhotosDelete) | **DELETE** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Delete a core_photo
 *KrakRestApi.CorePhotosApi* | [**corePhotosReadAll**](docs/CorePhotosApi.md#corePhotosReadAll) | **GET** /boreholes/{borehole_id}/core_photos/ | Read all core photo ids in db, sorted by id
+*KrakRestApi.CorePhotosApi* | [**corePhotosReadCropped**](docs/CorePhotosApi.md#corePhotosReadCropped) | **GET** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | Read cropped core photo
 *KrakRestApi.CorePhotosApi* | [**corePhotosReadOne**](docs/CorePhotosApi.md#corePhotosReadOne) | **GET** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Read one core photo
 *KrakRestApi.CorePhotosApi* | [**corePhotosUpdate**](docs/CorePhotosApi.md#corePhotosUpdate) | **PUT** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Update a core_photo
+*KrakRestApi.CorePhotosApi* | [**corePhotosUpdateCrop**](docs/CorePhotosApi.md#corePhotosUpdateCrop) | **PUT** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | re-crop a core photo
 
 
 ## Documentation for Models

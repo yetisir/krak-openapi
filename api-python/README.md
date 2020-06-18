@@ -81,10 +81,13 @@ Class | Method | HTTP request | Description
 *BoreholesApi* | [**boreholes_read_one**](docs/BoreholesApi.md#boreholes_read_one) | **GET** /boreholes/{borehole_id} | Read one borehole
 *BoreholesApi* | [**boreholes_update**](docs/BoreholesApi.md#boreholes_update) | **PUT** /boreholes/{borehole_id} | Update a borehole
 *CorePhotosApi* | [**core_photos_create**](docs/CorePhotosApi.md#core_photos_create) | **POST** /boreholes/{borehole_id}/core_photos/ | Create a new core photo
+*CorePhotosApi* | [**core_photos_crop**](docs/CorePhotosApi.md#core_photos_crop) | **POST** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | Crop a core photo
 *CorePhotosApi* | [**core_photos_delete**](docs/CorePhotosApi.md#core_photos_delete) | **DELETE** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Delete a core_photo
 *CorePhotosApi* | [**core_photos_read_all**](docs/CorePhotosApi.md#core_photos_read_all) | **GET** /boreholes/{borehole_id}/core_photos/ | Read all core photo ids in db, sorted by id
+*CorePhotosApi* | [**core_photos_read_cropped**](docs/CorePhotosApi.md#core_photos_read_cropped) | **GET** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | Read cropped core photo
 *CorePhotosApi* | [**core_photos_read_one**](docs/CorePhotosApi.md#core_photos_read_one) | **GET** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Read one core photo
 *CorePhotosApi* | [**core_photos_update**](docs/CorePhotosApi.md#core_photos_update) | **PUT** /boreholes/{borehole_id}/core_photos/{core_photo_id} | Update a core_photo
+*CorePhotosApi* | [**core_photos_update_crop**](docs/CorePhotosApi.md#core_photos_update_crop) | **PUT** /boreholes/{borehole_id}/core_photos/{core_photo_id}/crop | re-crop a core photo
 
 
 ## Documentation For Models
